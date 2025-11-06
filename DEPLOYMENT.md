@@ -4,15 +4,15 @@
 
 ### Local Development
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 Visit http://localhost:3000
 
 ### Production Build
 ```bash
-npm run build
-npm run preview
+pnpm run build
+pnpm run preview
 ```
 
 ## Vercel Deployment
@@ -22,15 +22,14 @@ npm run preview
 2. Import your GitHub repository
 3. Configure:
    - Framework Preset: **Vite**
-   - Build Command: `npm run build`
-   - Output Directory: `build`
-   - Install Command: `npm install`
+   - Build Command: `pnpm run build`
+   - Output Directory: `dist`
+   - Install Command: `pnpm install --frozen-lockfile`
 4. Deploy!
 
 ### Option 2: Vercel CLI
 ```bash
-npm install -g vercel
-vercel --prod
+pnpm dlx vercel@latest --prod
 ```
 
 The `vercel.json` file is already configured for SPA routing.
@@ -62,21 +61,20 @@ To optimize:
 ## Desktop (Tauri) - Coming Soon
 
 ```bash
-npm install -D @tauri-apps/cli
-npm run tauri dev
-npm run tauri build
+pnpm add -D @tauri-apps/cli
+pnpm run tauri dev
+pnpm run tauri build
 ```
 
 ## Mobile (Capacitor) - Coming Soon
 
 ```bash
-npm install -g @capacitor/cli
-npx cap init
-npx cap add ios
-npx cap add android
-npm run build && npx cap sync
-npx cap open ios
-npx cap open android
+pnpm dlx @capacitor/cli init
+pnpm dlx @capacitor/cli add ios
+pnpm dlx @capacitor/cli add android
+pnpm run build && pnpm dlx @capacitor/cli sync
+pnpm dlx @capacitor/cli open ios
+pnpm dlx @capacitor/cli open android
 ```
 
 ## Monitoring
