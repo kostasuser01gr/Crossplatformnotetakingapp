@@ -38,7 +38,7 @@ export default function Editor({ note, onUpdate }: EditorProps) {
     
     setTitle(note.title)
     editor.commands.setContent(note.content ?? { type: 'doc', content: [] })
-  }, [note?.id, editor])
+  }, [note, editor])
 
   useEffect(() => {
     return () => {
