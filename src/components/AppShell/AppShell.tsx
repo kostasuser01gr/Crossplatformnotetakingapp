@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import Editor from './Editor'
@@ -38,6 +38,14 @@ export function AppShell() {
     loadData()
   }, [])
 
+  const handleNewNote = useCallback(async () => {
+    if (!selectedNotebookId) return
+    const id = await createNote(selectedNotebookId)
+    const updated = await listNotes(selectedNotebookId)
+    setNotes(updated)
+    setSelectedNoteId(id)
+  }, [selectedNotebookId])
+
   // Keyboard shortcuts
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -53,15 +61,7 @@ export function AppShell() {
     
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [selectedNotebookId])
-
-  async function handleNewNote() {
-    if (!selectedNotebookId) return
-    const id = await createNote(selectedNotebookId)
-    const updated = await listNotes(selectedNotebookId)
-    setNotes(updated)
-    setSelectedNoteId(id)
-  }
+  }, [handleNewNote])
 
   async function handleNotebookSelect(notebookId: string) {
     setSelectedNotebookId(notebookId)
