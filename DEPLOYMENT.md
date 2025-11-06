@@ -69,13 +69,12 @@ pnpm run tauri build
 ## Mobile (Capacitor) - Coming Soon
 
 ```bash
-pnpm add -g @capacitor/cli
-npx cap init
-npx cap add ios
-npx cap add android
-pnpm run build && npx cap sync
-npx cap open ios
-npx cap open android
+pnpm dlx @capacitor/cli init
+pnpm dlx @capacitor/cli add ios
+pnpm dlx @capacitor/cli add android
+pnpm run build && pnpm dlx @capacitor/cli sync
+pnpm dlx @capacitor/cli open ios
+pnpm dlx @capacitor/cli open android
 ```
 
 ## Monitoring
