@@ -38,7 +38,7 @@ A production-ready, privacy-focused note-taking application that works offline-f
 
 ### Prerequisites
 - Node.js 20+
-- npm or pnpm
+- pnpm (recommended) or npm
 
 ### Installation
 
@@ -48,10 +48,10 @@ git clone https://github.com/kostasuser01gr/Crossplatformnotetakingapp.git
 cd Crossplatformnotetakingapp
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
 ```
 
 The app will open at `http://localhost:3000`
@@ -60,35 +60,35 @@ The app will open at `http://localhost:3000`
 
 ```bash
 # Build the app
-npm run build
+pnpm build
 
 # Preview production build
-npm run preview
+pnpm preview
 ```
 
-Output will be in the `build/` directory.
+Output will be in the `dist/` directory.
 
 ### Testing
 
 ```bash
 # Run unit tests
-npm test
+pnpm test
 
 # Run tests in watch mode
-npm run test:ui
+pnpm test:ui
 
 # Run e2e tests
-npm run e2e
+pnpm e2e
 ```
 
 ### Linting & Formatting
 
 ```bash
 # Lint code
-npm run lint
+pnpm lint
 
 # Format code
-npm run format
+pnpm format
 ```
 
 ## Project Structure
@@ -135,10 +135,28 @@ npm run format
 
 ### Vercel (Web)
 
-1. Connect your repository to Vercel
-2. Set build command: `npm run build`
-3. Set output directory: `build`
-4. Deploy!
+1. Push to GitHub.
+2. Vercel Dashboard → **New Project** → Import this repo.
+3. Settings:
+   - Framework Preset: **Vite**
+   - Install Command: `pnpm i --frozen-lockfile`
+   - Build Command: `pnpm build`
+   - Output Directory: `dist`
+4. Click **Deploy**. You'll get a Preview URL. Promote to Production when ready.
+
+#### CLI (optional)
+
+```bash
+pnpm dlx vercel@latest   # initial link
+pnpm dlx vercel build    # local build
+pnpm dlx vercel --prod   # production deploy
+```
+
+#### Verify
+
+* SPA routing works on deep links (no 404 on refresh).
+* PWA is installable and works offline (DevTools → Application → Service Workers → activated).
+* Assets are hashed and cached.
 
 The `vercel.json` configuration ensures SPA routing works correctly.
 
@@ -146,10 +164,10 @@ The `vercel.json` configuration ensures SPA routing works correctly.
 
 ```bash
 # Install Tauri CLI
-npm install -g @tauri-apps/cli
+pnpm add -g @tauri-apps/cli
 
 # Build for your platform
-npm run tauri build
+pnpm tauri build
 ```
 
 ### Mobile (Capacitor) - Coming Soon
@@ -160,7 +178,7 @@ npx cap add ios
 npx cap add android
 
 # Build and sync
-npm run build
+pnpm build
 npx cap sync
 
 # Open in Xcode/Android Studio
