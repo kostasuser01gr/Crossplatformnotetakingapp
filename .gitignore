@@ -1,0 +1,58 @@
+# Dependencies
+node_modules
+.pnpm-store
+.npm
+.yarn
+
+# Build outputs
+dist
+build
+*.local
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage
+.nyc_output
+
+# Temp
+tmp
+temp
+*.tmp
+
+# PWA
+dev-dist
+sw.js
+sw.js.map
+workbox-*.js
+workbox-*.js.map
+
+# Tauri
+apps/desktop/src-tauri/target
+
+# Capacitor
+apps/mobile/.capacitor
+apps/mobile/android
+apps/mobile/ios

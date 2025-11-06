@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { 
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  background: theme('colors.bg.DEFAULT'); 
+  color: theme('colors.fg.DEFAULT'); 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* TipTap Editor Styles */
+.ProseMirror {
+  outline: none;
+  min-height: 200px;
+}
+
+.ProseMirror p {
+  margin: 1em 0;
+}
+
+.ProseMirror h1, 
+.ProseMirror h2, 
+.ProseMirror h3 {
+  margin: 1.5em 0 0.5em;
+  font-weight: 600;
+}
+
+.ProseMirror code {
+  background: theme('colors.bg.soft');
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.ProseMirror pre {
+  background: theme('colors.bg.soft');
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow-x: auto;
+}
+
+.ProseMirror ul, 
+.ProseMirror ol {
+  padding-left: 2em;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid theme('colors.primary.DEFAULT');
+  padding-left: 1em;
+  margin-left: 0;
+  font-style: italic;
+}
